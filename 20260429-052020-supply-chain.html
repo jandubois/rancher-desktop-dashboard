@@ -108,6 +108,31 @@ h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1
 .card p { margin: 0.5rem 0; }
 .card p:first-child { margin-top: 0; }
 
+/* Supply-chain issue rows — used by issueList for bullets that
+ * uniformly start with a `file:line` reference. The location renders
+ * in a dark bar above the description so the eye picks up the path
+ * separately from the prose. */
+.issue-list { margin: 0.6rem 0; }
+.issue-row {
+  margin-bottom: 0.7rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.55);
+}
+.issue-loc {
+  background: #2d333b;
+  color: #adbac7;
+  padding: 0.3rem 0.7rem;
+  font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+.issue-loc a { color: #7ee787; text-decoration: none; }
+.issue-loc a:hover { text-decoration: underline; }
+.issue-loc code { background: none; padding: 0; color: inherit; font-size: 1em; }
+.issue-desc { padding: 0.55rem 0.8rem; }
+.issue-desc code { font-size: 0.85em; }
+
 /* Verdict highlight in metadata table */
 .verdict { font-weight: 700; }
 
@@ -195,15 +220,36 @@ h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1
     <div class="card card-design">
     <h3 id="github-actions">GitHub Actions <a href="#github-actions" class="pilcrow">&#182;</a></h3>
     <p>All 7 <code>uses:</code> references pin to a 40-hex SHA:</p>
-    <ul>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L15"><code>.github/workflows/build-extension-catalog.yml:15</code></a> — <code>rancher/dashboard/.github/workflows/build-extension-catalog.yml@9eb70a732e9be146722e1dbab431338366c2afc6</code></li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L15"><code>.github/workflows/build-extension-charts.yml:15</code></a> — <code>rancher/dashboard/.github/workflows/build-extension-charts.yml@9eb70a732e9be146722e1dbab431338366c2afc6</code></li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L19"><code>.github/workflows/release-dashboard.yml:19</code></a> — <code>actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5</code></li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L24"><code>.github/workflows/release-dashboard.yml:24</code></a> — <code>actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8</code></li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L33"><code>.github/workflows/release-dashboard.yml:33</code></a> — <code>actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02</code></li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L43"><code>.github/workflows/release-dashboard.yml:43</code></a> — <code>actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5</code></li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L48"><code>.github/workflows/release-dashboard.yml:48</code></a> — <code>actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093</code></li>
-    </ul>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L15"><code>.github/workflows/build-extension-catalog.yml:15</code></a></div>
+        <div class="issue-desc"><code>rancher/dashboard/.github/workflows/build-extension-catalog.yml@9eb70a732e9be146722e1dbab431338366c2afc6</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L15"><code>.github/workflows/build-extension-charts.yml:15</code></a></div>
+        <div class="issue-desc"><code>rancher/dashboard/.github/workflows/build-extension-charts.yml@9eb70a732e9be146722e1dbab431338366c2afc6</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L19"><code>.github/workflows/release-dashboard.yml:19</code></a></div>
+        <div class="issue-desc"><code>actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L24"><code>.github/workflows/release-dashboard.yml:24</code></a></div>
+        <div class="issue-desc"><code>actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L33"><code>.github/workflows/release-dashboard.yml:33</code></a></div>
+        <div class="issue-desc"><code>actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L43"><code>.github/workflows/release-dashboard.yml:43</code></a></div>
+        <div class="issue-desc"><code>actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L48"><code>.github/workflows/release-dashboard.yml:48</code></a></div>
+        <div class="issue-desc"><code>actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093</code></div>
+      </div>
+    </div>
     </div>
     <hr>
     <h2 id="open-issues" class="section-critical">Open issues <a href="#open-issues" class="pilcrow">&#182;</a></h2>
@@ -211,17 +257,44 @@ h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1
     <div class="card card-critical">
     <h3 id="github-actions-token-permissions">GitHub Actions token permissions <a href="#github-actions-token-permissions" class="pilcrow">&#182;</a></h3>
     <p>The default <code>GITHUB_TOKEN</code> is broadly scoped unless the workflow narrows it. None of the three workflows declares a top-level <code>permissions:</code> block, and <code>release-dashboard.yml</code> declares no <code>permissions:</code> block at any level — meaning the entire job inherits whatever the repo&#39;s default token permission is.</p>
-    <ul>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L1"><code>.github/workflows/build-extension-catalog.yml:1</code></a> — missing top-level <code>permissions:</code>. Set <code>permissions: read-all</code> at the workflow level so jobs inherit read-only by default.</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L17"><code>.github/workflows/build-extension-catalog.yml:17</code></a> — <code>actions: write</code> (sensitive). Required for the reusable workflow&#39;s caching/artifact step; keep, but only after the workflow-level read-all default is in place.</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L19"><code>.github/workflows/build-extension-catalog.yml:19</code></a> — <code>packages: write</code> (sensitive). Needed to push to <code>ghcr.io</code>; same remediation as above.</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L1"><code>.github/workflows/build-extension-charts.yml:1</code></a> — missing top-level <code>permissions:</code>. Add <code>permissions: read-all</code>.</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L17"><code>.github/workflows/build-extension-charts.yml:17</code></a> — <code>actions: write</code> (sensitive).</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L18"><code>.github/workflows/build-extension-charts.yml:18</code></a> — <code>contents: write</code> (sensitive). Used for the <code>gh-pages</code> push; keep, but verify it is still required by the upstream reusable workflow at SHA <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/commit/9eb70a7"><code>9eb70a7</code></a>.</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L19"><code>.github/workflows/build-extension-charts.yml:19</code></a> — <code>deployments: write</code> (sensitive).</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L20"><code>.github/workflows/build-extension-charts.yml:20</code></a> — <code>pages: write</code> (sensitive).</li>
-      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L1"><code>.github/workflows/release-dashboard.yml:1</code></a> — missing <code>permissions:</code> at every level. The release job runs <code>gh release upload</code> (line 58) using <code>secrets.GITHUB_TOKEN</code>, which needs <code>contents: write</code>. Add <code>permissions: read-all</code> at the workflow level and <code>permissions: { contents: write }</code> only on the <code>release</code> job. The <code>build</code> job needs no writes.</li>
-    </ul>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L1"><code>.github/workflows/build-extension-catalog.yml:1</code></a></div>
+        <div class="issue-desc">missing top-level <code>permissions:</code>. Set <code>permissions: read-all</code> at the workflow level so jobs inherit read-only by default.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L17"><code>.github/workflows/build-extension-catalog.yml:17</code></a></div>
+        <div class="issue-desc"><code>actions: write</code> (sensitive). Required for the reusable workflow&#39;s caching/artifact step; keep, but only after the workflow-level read-all default is in place.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L19"><code>.github/workflows/build-extension-catalog.yml:19</code></a></div>
+        <div class="issue-desc"><code>packages: write</code> (sensitive). Needed to push to <code>ghcr.io</code>; same remediation as above.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L1"><code>.github/workflows/build-extension-charts.yml:1</code></a></div>
+        <div class="issue-desc">missing top-level <code>permissions:</code>. Add <code>permissions: read-all</code>.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L17"><code>.github/workflows/build-extension-charts.yml:17</code></a></div>
+        <div class="issue-desc"><code>actions: write</code> (sensitive).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L18"><code>.github/workflows/build-extension-charts.yml:18</code></a></div>
+        <div class="issue-desc"><code>contents: write</code> (sensitive). Used for the <code>gh-pages</code> push; keep, but verify it is still required by the upstream reusable workflow at SHA <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/commit/9eb70a7"><code>9eb70a7</code></a>.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L19"><code>.github/workflows/build-extension-charts.yml:19</code></a></div>
+        <div class="issue-desc"><code>deployments: write</code> (sensitive).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L20"><code>.github/workflows/build-extension-charts.yml:20</code></a></div>
+        <div class="issue-desc"><code>pages: write</code> (sensitive).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L1"><code>.github/workflows/release-dashboard.yml:1</code></a></div>
+        <div class="issue-desc">missing <code>permissions:</code> at every level. The release job runs <code>gh release upload</code> (line 58) using <code>secrets.GITHUB_TOKEN</code>, which needs <code>contents: write</code>. Add <code>permissions: read-all</code> at the workflow level and <code>permissions: { contents: write }</code> only on the <code>release</code> job. The <code>build</code> job needs no writes.</div>
+      </div>
+    </div>
     </div>
     <div class="card card-critical">
     <h3 id="bot-auto-update-coverage">Bot / auto-update coverage <a href="#bot-auto-update-coverage" class="pilcrow">&#182;</a></h3>
