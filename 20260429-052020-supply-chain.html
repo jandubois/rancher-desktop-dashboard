@@ -102,6 +102,20 @@ h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1
 .retro-table th { background: #f3f4f6; font-weight: 600; }
 .retro-table tr:nth-child(even) { background: #f9fafb; }
 
+/* Supply-chain Summary table — first column gets breathing room,
+ * numeric middle columns center, header keeps its label on one line. */
+.summary-table { width: 100%; border-collapse: collapse; margin: 0.4rem 0 0.8rem; font-size: 0.92rem; }
+.summary-table th, .summary-table td {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #d5d9e0;
+  vertical-align: top;
+  text-align: left;
+}
+.summary-table th { background: rgba(255, 255, 255, 0.65); font-weight: 600; white-space: nowrap; }
+.summary-table td:first-child { min-width: 11rem; white-space: nowrap; }
+.summary-table th:not(:first-child):not(:last-child),
+.summary-table td:not(:first-child):not(:last-child) { text-align: center; }
+
 /* Lists and paragraphs inside cards */
 .card ul, .card ol { margin: 0.4rem 0; padding-left: 1.5rem; }
 .card li { margin-bottom: 0.3rem; }
@@ -195,7 +209,7 @@ h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1
     <h2 id="summary">Summary <a href="#summary" class="pilcrow">&#182;</a></h2>
 
     <div class="card card-neutral">
-    <table>
+    <table class="summary-table">
       <thead><tr><th>Ecosystem</th><th>Items</th><th>Pinned</th><th>Open issues</th><th>Notes</th></tr></thead>
       <tbody>
         <tr><td>Node (yarn-classic)</td><td>2 manifests, 1 lockfile</td><td>2</td><td>0</td><td>yarn.lock with 1859 <code>integrity</code> entries; nested <code>pkg/rancher-deskboard/package.json</code> is covered by the parent lockfile. No Dependabot/Renovate.</td></tr>
