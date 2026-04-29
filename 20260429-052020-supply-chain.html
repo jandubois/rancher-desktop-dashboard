@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supply Chain Scan: 20260429-052020-supply-chain</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+/* Deep Review — canonical stylesheet
+ * Inlined into each generated HTML file by the beautify-review skill.
+ * Edit this file to change the look of all future reviews.
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f8f9fb;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+main { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #111827; }
+h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #111827; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.4rem; }
+h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+hr { border: none; border-top: 2px solid #e5e7eb; margin: 2rem 0; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace; font-size: 0.85em; background: #f3f4f6; padding: 0.15em 0.35em; border-radius: 4px; }
+
+/* Code blocks — override Prism defaults */
+pre { margin: 0 !important; border-radius: 0 0 8px 8px !important; }
+pre[class*="language-"] { font-size: 0.78rem; line-height: 1.3; }
+pre code { background: none; padding: 0; }
+
+/* Report metadata table */
+.meta-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+.meta-table td { padding: 0.35rem 0.6rem; border: 1px solid #e5e7eb; vertical-align: top; }
+.meta-table td:first-child { font-weight: 600; width: 140px; background: #f9fafb; white-space: nowrap; }
+
+/* Cards — every section and finding lives in a card */
+.card { border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card-neutral { background: #f1f3f5; border: 1px solid #d5d9e0; }
+.card-critical { background: #ffeef0; border: 1px solid #f5c6cb; }
+.card-important { background: #fff0e0; border: 1px solid #f5d9a8; }
+.card-suggestion { background: #f0f6ff; border: 1px solid #c7d9f5; }
+.card-design { background: #f0faf4; border: 1px solid #b7e4c7; }
+
+/* Severity section headings — colored to match their cards */
+.section-critical { color: #9b1c1c; }
+.section-important { color: #92400e; }
+.section-suggestion { color: #1e40af; }
+.section-design { color: #065f46; }
+
+/* Agent attribution pills */
+.pill { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.15em 0.55em; border-radius: 999px; margin-right: 0.3em; vertical-align: middle; letter-spacing: 0.01em; }
+.pill-claude { background: #e9d5ff; color: #6b21a8; }
+.pill-codex { background: #d1fae5; color: #065f46; }
+.pill-gemini { background: #ffe4e6; color: #9f1239; }
+
+/* Finding titles */
+.finding-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; line-height: 1.4; }
+.finding-num { font-weight: 800; }
+
+/* Code file header — dark bar above each source code block.
+ * The filename is a GitHub permalink to the displayed line range.
+ * Text color is light gray (#adbac7) for the bar, green (#7ee787)
+ * for the hyperlink — matching GitHub's dark-mode file header. */
+.code-file-header { background: #2d333b; color: #adbac7; font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace; font-size: 0.75rem; padding: 0.4rem 0.9rem; border-radius: 8px 8px 0 0; margin-top: 0.8rem; }
+.code-file-header a { color: #7ee787; }
+.code-file-header a:hover { text-decoration: underline; }
+
+/* Line numbers (CSS counters) and line highlighting */
+.code-line { display: block; }
+.code-line::before {
+  content: counter(line);
+  counter-increment: line;
+  display: inline-block;
+  width: 3em;
+  margin-right: 0.8em;
+  padding-right: 0.5em;
+  text-align: right;
+  color: #636e7b;
+  border-right: 1px solid #3d4556;
+  user-select: none;
+}
+.line-hl { background: rgba(255, 199, 0, 0.18); }
+
+/* Pilcrow anchor links — hidden until parent is hovered */
+.pilcrow { color: #d1d5db; text-decoration: none; font-weight: 400; margin-left: 0.4em; opacity: 0; transition: opacity 0.15s; }
+h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1; }
+.pilcrow:hover { color: #6b7280; text-decoration: none; }
+
+/* Fix label */
+.fix-label { font-weight: 700; }
+
+/* Agent retro summary table */
+.retro-table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.9rem; table-layout: fixed; }
+.retro-table th, .retro-table td { padding: 0.45rem 0.7rem; border: 1px solid #e5e7eb; text-align: left; }
+.retro-table th { background: #f3f4f6; font-weight: 600; }
+.retro-table tr:nth-child(even) { background: #f9fafb; }
+
+/* Lists and paragraphs inside cards */
+.card ul, .card ol { margin: 0.4rem 0; padding-left: 1.5rem; }
+.card li { margin-bottom: 0.3rem; }
+.card p { margin: 0.5rem 0; }
+.card p:first-child { margin-top: 0; }
+
+/* Verdict highlight in metadata table */
+.verdict { font-weight: 700; }
+
+/* GitHub reference tooltips — shown on hover for #N links */
+.gh-tooltip {
+  position: absolute;
+  background: #1f2328;
+  color: #e6edf3;
+  padding: 0.55em 0.75em;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  max-width: 380px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.28);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.gh-tooltip-state {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  margin-right: 0.4em;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.gh-state-open { background: #238636; color: #fff; }
+.gh-state-closed { background: #848d97; color: #fff; }
+.gh-state-merged { background: #8957e5; color: #fff; }
+.gh-tooltip-title { vertical-align: baseline; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  body { padding: 1rem 0.5rem; }
+  .card { padding: 0.9rem 1rem; }
+  pre code { font-size: 0.72rem; }
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Supply Chain Scan: 20260429-052020-supply-chain</h1>
+
+    <table class="meta-table">
+      <tr><td>Date</td><td>2026-04-29 05:20</td></tr>
+      <tr><td>Repo</td><td><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard">rancher-sandbox/rancher-desktop-dashboard</a></td></tr>
+      <tr><td>Branch</td><td><code>main</code> @ <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/commit/6e790a3"><code>6e790a3</code></a></td></tr>
+      <tr><td>Kind</td><td>Supply chain scan</td></tr>
+      <tr><td>Verdict</td><td><span class="verdict">10 open issues</span> &mdash; 9 GHA token-permission issues, 1 advisory on missing bot config</td></tr>
+    </table>
+
+    <hr>
+
+    <hr>
+    <h2 id="summary">Summary <a href="#summary" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <table>
+      <thead><tr><th>Ecosystem</th><th>Items</th><th>Pinned</th><th>Open issues</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Node (yarn-classic)</td><td>2 manifests, 1 lockfile</td><td>2</td><td>0</td><td>yarn.lock with 1859 <code>integrity</code> entries; nested <code>pkg/rancher-deskboard/package.json</code> is covered by the parent lockfile. No Dependabot/Renovate.</td></tr>
+        <tr><td>GitHub Actions <code>uses:</code></td><td>7</td><td>7</td><td>0</td><td>All references SHA-pinned with version comments.</td></tr>
+        <tr><td>GHA token permissions</td><td>3 workflows</td><td>0</td><td>9</td><td>All three workflows lack a top-level <code>permissions:</code> block; two workflows grant sensitive-write job scopes.</td></tr>
+        <tr><td>Bot / auto-update</td><td>0</td><td>—</td><td>1 advisory</td><td>No Dependabot or Renovate configuration found.</td></tr>
+      </tbody>
+    </table>
+    <p>No Dockerfiles, container images, Python/Rust/Ruby/Go/Java/Terraform/Nix/Bazel manifests, devcontainers, submodules, inline downloads, run-from-network commands, git clones in scripts, custom version+digest manifests, or insecure-transport flags were found.</p>
+    </div>
+    <hr>
+    <h2 id="pinned-dependencies" class="section-design">Pinned dependencies <a href="#pinned-dependencies" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-design">
+    <h3 id="node-yarn-classic">Node (yarn-classic) <a href="#node-yarn-classic" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li><code>package.json</code> + <code>yarn.lock</code> (yarn-classic, 1859 <code>integrity</code> lines). <code>yarn install --frozen-lockfile</code> is used in <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/scripts/build-dashboard.sh#L28"><code>.github/workflows/scripts/build-dashboard.sh:28</code></a>, so installs are digest-verified at fetch.</li>
+      <li><code>pkg/rancher-deskboard/package.json</code> has no sibling lockfile but is covered by the workspace-root <code>yarn.lock</code>.</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/package.json#L8"><code>package.json:8</code></a> pins the package manager itself: <code>&quot;packageManager&quot;: &quot;yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72&quot;</code> — corepack will verify the yarn binary against that SHA-1.</li>
+    </ul>
+    </div>
+    <div class="card card-design">
+    <h3 id="github-actions">GitHub Actions <a href="#github-actions" class="pilcrow">&#182;</a></h3>
+    <p>All 7 <code>uses:</code> references pin to a 40-hex SHA:</p>
+    <ul>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L15"><code>.github/workflows/build-extension-catalog.yml:15</code></a> — <code>rancher/dashboard/.github/workflows/build-extension-catalog.yml@9eb70a732e9be146722e1dbab431338366c2afc6</code></li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L15"><code>.github/workflows/build-extension-charts.yml:15</code></a> — <code>rancher/dashboard/.github/workflows/build-extension-charts.yml@9eb70a732e9be146722e1dbab431338366c2afc6</code></li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L19"><code>.github/workflows/release-dashboard.yml:19</code></a> — <code>actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5</code></li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L24"><code>.github/workflows/release-dashboard.yml:24</code></a> — <code>actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8</code></li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L33"><code>.github/workflows/release-dashboard.yml:33</code></a> — <code>actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02</code></li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L43"><code>.github/workflows/release-dashboard.yml:43</code></a> — <code>actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5</code></li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L48"><code>.github/workflows/release-dashboard.yml:48</code></a> — <code>actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093</code></li>
+    </ul>
+    </div>
+    <hr>
+    <h2 id="open-issues" class="section-critical">Open issues <a href="#open-issues" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-critical">
+    <h3 id="github-actions-token-permissions">GitHub Actions token permissions <a href="#github-actions-token-permissions" class="pilcrow">&#182;</a></h3>
+    <p>The default <code>GITHUB_TOKEN</code> is broadly scoped unless the workflow narrows it. None of the three workflows declares a top-level <code>permissions:</code> block, and <code>release-dashboard.yml</code> declares no <code>permissions:</code> block at any level — meaning the entire job inherits whatever the repo&#39;s default token permission is.</p>
+    <ul>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L1"><code>.github/workflows/build-extension-catalog.yml:1</code></a> — missing top-level <code>permissions:</code>. Set <code>permissions: read-all</code> at the workflow level so jobs inherit read-only by default.</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L17"><code>.github/workflows/build-extension-catalog.yml:17</code></a> — <code>actions: write</code> (sensitive). Required for the reusable workflow&#39;s caching/artifact step; keep, but only after the workflow-level read-all default is in place.</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-catalog.yml#L19"><code>.github/workflows/build-extension-catalog.yml:19</code></a> — <code>packages: write</code> (sensitive). Needed to push to <code>ghcr.io</code>; same remediation as above.</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L1"><code>.github/workflows/build-extension-charts.yml:1</code></a> — missing top-level <code>permissions:</code>. Add <code>permissions: read-all</code>.</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L17"><code>.github/workflows/build-extension-charts.yml:17</code></a> — <code>actions: write</code> (sensitive).</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L18"><code>.github/workflows/build-extension-charts.yml:18</code></a> — <code>contents: write</code> (sensitive). Used for the <code>gh-pages</code> push; keep, but verify it is still required by the upstream reusable workflow at SHA <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/commit/9eb70a7"><code>9eb70a7</code></a>.</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L19"><code>.github/workflows/build-extension-charts.yml:19</code></a> — <code>deployments: write</code> (sensitive).</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/build-extension-charts.yml#L20"><code>.github/workflows/build-extension-charts.yml:20</code></a> — <code>pages: write</code> (sensitive).</li>
+      <li><a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L1"><code>.github/workflows/release-dashboard.yml:1</code></a> — missing <code>permissions:</code> at every level. The release job runs <code>gh release upload</code> (line 58) using <code>secrets.GITHUB_TOKEN</code>, which needs <code>contents: write</code>. Add <code>permissions: read-all</code> at the workflow level and <code>permissions: { contents: write }</code> only on the <code>release</code> job. The <code>build</code> job needs no writes.</li>
+    </ul>
+    </div>
+    <div class="card card-critical">
+    <h3 id="bot-auto-update-coverage">Bot / auto-update coverage <a href="#bot-auto-update-coverage" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li>Repo root — no <code>.github/dependabot.yml</code> and no Renovate config (<code>renovate.json[5]</code>, <code>.github/renovate.json[5]</code>, <code>.gitlab/renovate.json</code>). With 1859 transitive Node deps and 7 hand-pinned GitHub Actions SHAs, dependency updates are an entirely manual process. Advisory: configure either Dependabot (<code>npm</code> ecosystem + <code>github-actions</code> ecosystem, weekly) or Renovate so security-sensitive updates surface as PRs.</li>
+    </ul>
+    </div>
+    <hr>
+    <h2 id="retro-dependency-types-not-explicitly-covered">Retro: dependency types not explicitly covered <a href="#retro-dependency-types-not-explicitly-covered" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <h3 id="r1-yarnrc-format-packagemanager-mismatch-is-invisible-to-the-inventory">R1. yarnrc-format ↔ packageManager mismatch is invisible to the inventory <a href="#r1-yarnrc-format-packagemanager-mismatch-is-invisible-to-the-inventory" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/package.json#L8"><code>package.json:8</code></a> pins <code>packageManager: yarn@1.22.21+...</code> (Yarn 1, &quot;yarn-classic&quot;). <code>.yarnrc.yml</code> exists at the repo root with <code>nodeLinker: node-modules</code> and <code>pnpMode: false</code> — both of which are Yarn Berry (v2+) settings. Yarn 1 reads <code>.yarnrc</code> (no extension) and ignores <code>.yarnrc.yml</code> entirely, so the file is dead config in this repo.</p>
+    <p><strong>Why current rules missed it.</strong> <code>inventory.py</code> parses <code>.yarnrc.yml</code> regardless of which Yarn major version the repo uses, then reports <code>enable_scripts: true</code> as a security-relevant signal. For yarn-classic that report is misleading: the YAML file is not consulted by the package manager, and the relevant lifecycle-script setting for Yarn 1 lives elsewhere (<code>yarn install --ignore-scripts</code> at the call site, or an <code>.yarnrc</code> keyword). Phase 2 has no rule to cross-check <code>lockfile_kind: yarn-classic</code> against the presence of a <code>.yarnrc.yml</code>.</p>
+    <p><strong>Proposed change.</strong> In <code>inventory.py</code>&#39;s Node detector, when <code>lockfile_kind == &quot;yarn-classic&quot;</code>, set <code>yarnrc.applies = False</code> (or null out <code>enable_scripts</code>) and add a <code>meta.warnings</code> entry like <code>&quot;.yarnrc.yml present but yarn-classic ignores it&quot;</code>. Phase 2 should treat that warning as advisory only, not as an open issue.</p>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r2-corepack-packagemanager-sha-is-a-real-pinning-signal">R2. Corepack `packageManager` SHA is a real pinning signal <a href="#r2-corepack-packagemanager-sha-is-a-real-pinning-signal" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/package.json#L8"><code>package.json:8</code></a> carries <code>&quot;packageManager&quot;: &quot;yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72&quot;</code>. When corepack is enabled (the default on Node 20+), this SHA-1 is verified against the downloaded yarn tarball before it executes — i.e. the package manager binary is itself hash-pinned.</p>
+    <p><strong>Why current rules missed it.</strong> Phase 1 enumerates lockfiles and Phase 2 verifies <code>integrity</code> lines, but the corepack <code>packageManager</code> field is invisible to both. A repo that pins yarn / npm / pnpm via this field is more strongly pinned than one that does not, and Phase 3 currently has no way to surface that.</p>
+    <p><strong>Proposed change.</strong> Extend the Node detector in <code>inventory.py</code> to record <code>package_manager: { spec, version, hash_algo, hash }</code> per <code>package.json</code>. Add a Phase 2 sub-bullet that recognises a <code>packageManager</code> value matching <code>/(yarn|npm|pnpm)@[^+]+\+(sha1|sha224|sha256|sha384|sha512)\.[0-9a-f]+/</code> as a positive pinning signal, and flag a <code>packageManager</code> value without the <code>+&lt;algo&gt;.&lt;hex&gt;</code> suffix as an advisory open issue (corepack will fall back to &quot;trust whatever it downloads&quot;).</p>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r3-ci-build-script-lacks-a-verification-step-for-the-artifacts-it-produces-but-this-is-a-packaging-concern-not-a-supply-chain-one">R3. CI build script lacks a verification step for the artifacts it produces — but this is a packaging concern, not a supply-chain one <a href="#r3-ci-build-script-lacks-a-verification-step-for-the-artifacts-it-produces-but-this-is-a-packaging-concern-not-a-supply-chain-one" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/scripts/build-dashboard.sh#L37"><code>.github/workflows/scripts/build-dashboard.sh:37</code></a> runs <code>sha512sum $RELEASE_LOCATION.tar.gz &gt; ...sha512sum</code> and <a href="https://github.com/rancher-sandbox/rancher-desktop-dashboard/blob/6e790a3332061be3f6e909c53b185df456843ed1/.github/workflows/release-dashboard.yml#L58"><code>release-dashboard.yml:58</code></a> uploads both files via <code>gh release upload</code>. The <code>.sha512sum</code> file is published alongside the tarball, but consumers who download both from the same GitHub release host get no out-of-band integrity guarantee — an attacker who could overwrite the release could overwrite both files.</p>
+    <p><strong>Why current rules missed it.</strong> This is downstream-distribution integrity, not the upstream-dependency direction the skill scans. The skill explicitly checks &quot;we verify what we pull in&quot;, not &quot;we publish in a way our consumers can verify&quot;. So Phase 2 not flagging this is correct.</p>
+    <p><strong>Proposed change.</strong> None to the skill itself — but the report should mention to Jan that adding cosign/sigstore signing of the release tarball, or publishing the digest to a separate channel (e.g. a signed GitHub release notes block, or a sigstore transparency log entry), would close the loop for downstream consumers. Track in the retro for visibility; keep out of &quot;Open issues&quot; since it is genuinely out of the skill&#39;s scope.</p>
+    </div>
+    <hr>
+    <h2 id="closing">Closing <a href="#closing" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <p>Open issues are concentrated in GitHub Actions token-permission scoping; ecosystem pinning (Node deps, GHA SHAs, the yarn binary itself) is in good shape.</p>
+    </div>
+  </main>
+  <script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-diff.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+  <script>
+/* Deep Review — Prism initialization and line-number wrapping.
+ * Inlined into each generated HTML file by the beautify-review skill.
+ * Runs synchronously at the end of <body> — no event listeners.
+ *
+ * Prerequisite: a preceding <script> must set Prism.manual = true
+ * before the Prism core <script> loads.
+ */
+
+Prism.highlightAll();
+
+document.querySelectorAll('pre[data-start]').forEach(function(pre) {
+  var startLine = parseInt(pre.getAttribute('data-start'), 10) || 1;
+  var hlAttr = pre.getAttribute('data-line') || '';
+
+  /* Parse data-line into a Set of line numbers to highlight.
+   * Accepts comma-separated values: "75,76,77" or ranges: "75-84". */
+  var hlLines = new Set();
+  hlAttr.split(',').forEach(function(part) {
+    part = part.trim();
+    if (!part) return;
+    var m = part.match(/^(\d+)-(\d+)$/);
+    if (m) {
+      for (var i = parseInt(m[1], 10); i <= parseInt(m[2], 10); i++) hlLines.add(i);
+    } else {
+      hlLines.add(parseInt(part, 10));
+    }
+  });
+
+  var code = pre.querySelector('code');
+  if (!code) return;
+
+  var html = code.innerHTML;
+  var lines = html.split('\n');
+  /* Strip a trailing empty line that Prism sometimes leaves. */
+  if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+
+  var wrapped = lines.map(function(line, idx) {
+    var lineNum = startLine + idx;
+    var cls = 'code-line' + (hlLines.has(lineNum) ? ' line-hl' : '');
+    return '<span class="' + cls + '">' + line + '</span>';
+  });
+
+  /* Join with '' (empty string) — NOT '\n'.
+   * Inside <pre>, newlines are literal whitespace. Since .code-line uses
+   * display: block, joining with '\n' produces double line spacing. */
+  code.innerHTML = wrapped.join('');
+  pre.style.counterReset = 'line ' + (startLine - 1);
+});
+
+/* GitHub reference tooltips — show title and state on hover for #N links.
+ * Links must have class="gh-ref" and data-title set by the generator. */
+document.querySelectorAll('a.gh-ref[data-title]').forEach(function(link) {
+  var tip = null;
+
+  link.addEventListener('mouseenter', function() {
+    if (tip) return;
+    tip = document.createElement('div');
+    tip.className = 'gh-tooltip';
+
+    var state = link.getAttribute('data-state') || '';
+    var type = link.getAttribute('data-type') || 'issue';
+    var label = state.charAt(0).toUpperCase() + state.slice(1).toLowerCase();
+
+    var pill = document.createElement('span');
+    pill.className = 'gh-tooltip-state gh-state-' + state;
+    pill.textContent = label + (type === 'pr' ? ' PR' : '');
+
+    var title = document.createElement('span');
+    title.className = 'gh-tooltip-title';
+    title.textContent = link.getAttribute('data-title');
+
+    tip.appendChild(pill);
+    tip.appendChild(title);
+    document.body.appendChild(tip);
+
+    var rect = link.getBoundingClientRect();
+    var tw = tip.offsetWidth;
+    var th = tip.offsetHeight;
+    var left = rect.left + window.scrollX;
+    var top = rect.top + window.scrollY - th - 8;
+
+    if (left + tw > window.innerWidth - 12) left = window.innerWidth - tw - 12;
+    if (left < 4) left = 4;
+    if (top < window.scrollY + 4) top = rect.bottom + window.scrollY + 8;
+
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.style.opacity = '1';
+  });
+
+  link.addEventListener('mouseleave', function() {
+    if (tip) { tip.remove(); tip = null; }
+  });
+});
+
+  </script>
+</body>
+</html>
